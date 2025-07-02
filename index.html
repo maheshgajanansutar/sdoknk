@@ -1,114 +1,203 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Wall & Logo Wall</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book Wall &amp; Logo Wall</title>
+<link href="styles.css" rel="stylesheet"/>
+<style>/* Base Styling */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Heading Styling */
+header h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  padding: 20px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  margin: 0 0 20px;
+}
+
+/* GRID container: 5 columns of 234px each */
+.wall {
+  display: grid;
+  grid-template-columns: repeat(5, 234px);
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 20px 40px;
+}
+
+/* General Card Styles */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Book Wall: vertical cards */
+.card.vertical img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Logo Wall Specific */
+.logo-card {
+  padding: 15px;
+}
+.logo-img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+.qr-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.logo-heading {
+  font-size: 1rem;
+  color: #8B0000; /* brownish-red */
+  margin: 5px 0;
+}
+.logo-slogan {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .wall {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 800px) {
+  .wall {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+</style></head>
 <body>
-    <header>
-        <h1>Book Wall</h1>
-    </header>
-    <section class="wall book-wall">
-        <!-- Book Wall -->
-        <div class="card vertical" onclick="openLink('https://example.com/book1')">
-            <img src="./Images/books/3.jpg" alt="Book 1" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book2')">
-            <img src="./Images/books/4.jpg" alt="Book 2" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book3')">
-            <img src="./Images/books/5.jpg" alt="Book 3" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book4')">
-            <img src="./Images/books/6.jpg" alt="Book 4" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book5')">
-            <img src="./Images/books/7.jpg" alt="Book 5" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book6')">
-            <img src="./Images/books/8.jpg" alt="Book 6" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book7')">
-            <img src="./Images/books/9.jpg" alt="Book 7" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book8')">
-            <img src="./Images/books/10.jpg" alt="Book 8" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book9')">
-            <img src="./Images/books/11.jpg" alt="Book 9" />
-        </div>
-        <div class="card vertical" onclick="openLink('https://example.com/book10')">
-            <img src="./Images/books/16.jpg" alt="Book 10" />
-        </div>
-    </section>
-    <header>
-        <h1>Logo Wall</h1>
-    </header>
-    <section class="wall logo-wall">
-        <!-- Logo Wall: logo, QR, heading & slogan -->
-        <div class="card logo-card">
-            <img src="./Images/logo/2.jpg" alt="Company Logo 1" class="logo-img" />
-            <img src="./Images/logo/3.jpg" alt="QR Code 1" class="qr-img" />
-            <h3 class="logo-heading">Pratik Heading</h3>
-            <p class="logo-slogan">My name is pratik and  I am not terro</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo2.png" alt="Company Logo 2" class="logo-img" />
-            <img src="./Images/qr/qr2.png" alt="QR Code 2" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 2</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo3.png" alt="Company Logo 3" class="logo-img" />
-            <img src="./Images/qr/qr3.png" alt="QR Code 3" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 3</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo4.png" alt="Company Logo 4" class="logo-img" />
-            <img src="./Images/qr/qr4.png" alt="QR Code 4" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 4</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo5.png" alt="Company Logo 5" class="logo-img" />
-            <img src="./Images/qr/qr5.png" alt="QR Code 5" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 5</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo6.png" alt="Company Logo 6" class="logo-img" />
-            <img src="./Images/qr/qr6.png" alt="QR Code 6" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 6</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo7.png" alt="Company Logo 7" class="logo-img" />
-            <img src="./Images/qr/qr7.png" alt="QR Code 7" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 7</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo8.png" alt="Company Logo 8" class="logo-img" />
-            <img src="./Images/qr/qr8.png" alt="QR Code 8" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 8</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo9.png" alt="Company Logo 9" class="logo-img" />
-            <img src="./Images/qr/qr9.png" alt="QR Code 9" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 9</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-        <div class="card logo-card">
-            <img src="./Images/logo/logo10.png" alt="Company Logo 10" class="logo-img" />
-            <img src="./Images/qr/qr10.png" alt="QR Code 10" class="qr-img" />
-            <h3 class="logo-heading">Logo Title 10</h3>
-            <p class="logo-slogan">Your slogan goes here.</p>
-        </div>
-    </section>
-    <script src="script.js"></script>
-</body>
+<header>
+<h1>Book Wall</h1>
+</header>
+<section class="wall book-wall">
+<!-- Book Wall -->
+<div class="card vertical" onclick="openLink('https://drive.google.com/file/d/1Phalww978-TvapIBFqCDUdJ1EyWV6cRh/view?usp=drivesdk')">
+<img alt="Book 1" src="./Images/books/3.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://drive.google.com/file/d/1NxV5T16inddHB9IEYXm4dOPBeS-6WMx1/view?usp=drivesdk')">
+<img alt="Book 2" src="./Images/books/4.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://drive.google.com/file/d/1e2Id7Vnj1H1NyO71v-a4CxbCPiyFbL42/view?usp=drivesdk')">
+<img alt="Book 3" src="./Images/books/5.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://drive.google.com/file/d/1z1NCg40ljaN2KqRMQM-jwRQtT3LaTktr/view?usp=drivesdk')">
+<img alt="Book 4" src="./Images/books/6.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://example.com/book5')">
+<img alt="Book 5" src="./Images/books/7.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://example.com/book6')">
+<img alt="Book 6" src="./Images/books/8.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://example.com/book7')">
+<img alt="Book 7" src="./Images/books/9.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://example.com/book8')">
+<img alt="Book 8" src="./Images/books/10.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://example.com/book9')">
+<img alt="Book 9" src="./Images/books/11.jpg"/>
+</div>
+<div class="card vertical" onclick="openLink('https://example.com/book10')">
+<img alt="Book 10" src="./Images/books/16.jpg"/>
+</div>
+</section>
+<header>
+<h1>Logo Wall</h1>
+</header>
+<section class="wall logo-wall">
+<!-- Logo Wall: logo, QR, heading & slogan -->
+<div class="card logo-card">
+<img alt="Company Logo 1" class="logo-img" src="./Images/logo/2.jpg"/>
+<img alt="QR Code 1" class="qr-img" src="./Images/logo/3.jpg"/>
+<h3 class="logo-heading">Pratik Heading</h3>
+<p class="logo-slogan">My name is pratik and  I am not terro</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 2" class="logo-img" src="./Images/logo/logo2.png"/>
+<img alt="QR Code 2" class="qr-img" src="./Images/qr/qr2.png"/>
+<h3 class="logo-heading">Logo Title 2</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 3" class="logo-img" src="./Images/logo/logo3.png"/>
+<img alt="QR Code 3" class="qr-img" src="./Images/qr/qr3.png"/>
+<h3 class="logo-heading">Logo Title 3</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 4" class="logo-img" src="./Images/logo/logo4.png"/>
+<img alt="QR Code 4" class="qr-img" src="./Images/qr/qr4.png"/>
+<h3 class="logo-heading">Logo Title 4</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 5" class="logo-img" src="./Images/logo/logo5.png"/>
+<img alt="QR Code 5" class="qr-img" src="./Images/qr/qr5.png"/>
+<h3 class="logo-heading">Logo Title 5</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 6" class="logo-img" src="./Images/logo/logo6.png"/>
+<img alt="QR Code 6" class="qr-img" src="./Images/qr/qr6.png"/>
+<h3 class="logo-heading">Logo Title 6</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 7" class="logo-img" src="./Images/logo/logo7.png"/>
+<img alt="QR Code 7" class="qr-img" src="./Images/qr/qr7.png"/>
+<h3 class="logo-heading">Logo Title 7</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 8" class="logo-img" src="./Images/logo/logo8.png"/>
+<img alt="QR Code 8" class="qr-img" src="./Images/qr/qr8.png"/>
+<h3 class="logo-heading">Logo Title 8</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 9" class="logo-img" src="./Images/logo/logo9.png"/>
+<img alt="QR Code 9" class="qr-img" src="./Images/qr/qr9.png"/>
+<h3 class="logo-heading">Logo Title 9</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+<div class="card logo-card">
+<img alt="Company Logo 10" class="logo-img" src="./Images/logo/logo10.png"/>
+<img alt="QR Code 10" class="qr-img" src="./Images/qr/qr10.png"/>
+<h3 class="logo-heading">Logo Title 10</h3>
+<p class="logo-slogan">Your slogan goes here.</p>
+</div>
+</section>
+<script src="script.js"></script>
+<script>function openLink(url) {
+    window.open(url, "_blank");
+}
+</script></body>
 </html>
